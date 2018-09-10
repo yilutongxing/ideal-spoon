@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="请完善您的信息"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0.06" />
+
+    <EditText
+        android:id="@+id/info_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_bg"
+        android:hint=" 姓名"
+        android:textSize="20dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint=" 电话号码"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_bg"
+        android:id="@+id/info_phone"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint=" 专业"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_bg"
+        android:id="@+id/info_major"/>
+    <RadioGroup
+        android:layout_marginTop="20dp"
+        android:id="@+id/info_sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+        <RadioButton
+            android:id="@+id/boy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="男" />
+        <RadioButton
+            android:id="@+id/gril"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="女" />
+    </RadioGroup>
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击设置您的生日"
+        android:textSize="20sp"
+        android:id="@+id/info_setbirthday"/>
+    <TextView
+        android:id="@+id/info_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        android:layout_marginTop="0dp"
+        />
+    <EditText
+        android:id="@+id/info_introduce"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="0.13"
+        android:background="@drawable/edit_bg"
+        android:hint=" 个人简介"
+        android:textSize="20dp" />
+    <Button
+        android:id="@+id/info_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="提交"
+        android:textSize="20sp"
+        android:layout_weight="0.11" />
+</LinearLayout>

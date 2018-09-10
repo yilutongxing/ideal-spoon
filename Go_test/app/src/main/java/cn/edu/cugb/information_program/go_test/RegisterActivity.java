@@ -140,7 +140,7 @@ public class RegisterActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 String tocheckcode = inputcode.getText().toString();
-                if (!tocheckcode.equals(checkcode))//邮箱验证可能又不太行了，先这样试吧
+                if (tocheckcode.equals(checkcode))
                 {
                     //   此时验证已经通过
                     //   address是邮箱

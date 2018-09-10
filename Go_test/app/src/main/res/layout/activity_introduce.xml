@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_introduce"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/logoScreenBackground"
+    tools:context="cn.edu.cugb.information_program.go_test.MatchingActivity">
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#0f0f0f"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="应用简介"
+            android:textColor="#fff"
+            android:textSize="24dp"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView" />
+    </RelativeLayout>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="41dp"
+            android:text="  “一路同行”是一款保障大学生旅途安全的移动社交工具，是一个基于大数据智能推荐，安全保障下创新互动模式的社交APP。“一路同行”根据用户的行程、个人资料等信息，计算并推送可与之同行的人，帮助他们相互联系，一路同行，从而在根源上避免用户独自远行遇到的危险。"
+            android:layout_below="@+id/rl_top"
+            android:layout_centerHorizontal="true"
+            android:textSize="18dp" />
+</RelativeLayout>
