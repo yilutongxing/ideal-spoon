@@ -1,104 +1,139 @@
 package cn.edu.cugb.information_program.go_test;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
-import android.util.Log;
-import android.widget.EditText;
-import android.widget.Switch;
+import android.view.Window;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
-public class MainActivity extends AppCompatActivity {
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-    public EditText origin;
-    public EditText destination;
-    public EditText month;
-    public EditText day;
-    public EditText number;
-    public EditText comment;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener
+{
+
+    //UI Object
+    private TextView txt_topbar;
+    private TextView txt_channel;
+    private TextView txt_message;
+    private TextView txt_better;
+    private TextView txt_setting;
+    private LinearLayout ly_content;
+
+    //Fragment Object
+    private MyFragment fg1, fg2, fg3, fg4;
+    private FragmentManager fManager;
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        origin= (EditText) findViewById(R.id.editText2);
-        destination= (EditText) findViewById(R.id.editText3);
-        number=(EditText) findViewById(R.id.editText4);
-        month=(EditText) findViewById(R.id.editText5);
-        day=(EditText) findViewById(R.id.editText6);
-        comment=(EditText)findViewById(R.id.editText7);
-        Button button_matching = (Button) findViewById(R.id.button_matching);
-        button_matching.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "正在匹配，请稍等...", Toast.LENGTH_SHORT).show();
-                Intent intent_matching = new Intent(MainActivity.this, MatchingActivity.class);
-                String originstr= origin.getText().toString();
-                String destinationstr= destination.getText().toString();
-                String numberstr= number.getText().toString();
-                String monthstr= month.getText().toString();
-                String daystr= day.getText().toString();
-                String commentstr=comment.getText().toString();
-                intent_matching.putExtra("origin",originstr);
-                intent_matching.putExtra("destination",destinationstr);
-                intent_matching.putExtra("number",numberstr);
-                intent_matching.putExtra("month",monthstr);
-                intent_matching.putExtra("day",daystr);
-                intent_matching.putExtra("comment",commentstr);
-                startActivity(intent_matching);
-            }
-        });
-        Button button_menu = (Button) findViewById(R.id.button_menu);
-        button_menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent_menu = new Intent(MainActivity.this, MenuActivity.class);
-                startActivity(intent_menu);
-            }
-        });
-        Button button_introduce = (Button) findViewById(R.id.button_introduce);
-        button_introduce.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent_introduce = new Intent(MainActivity.this, IntroduceActivity.class);
-                startActivity(intent_introduce);
-            }
-        });
-        Button button_myline = (Button) findViewById(R.id.button_myline);
-        button_myline.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent_myline = new Intent(MainActivity.this, MylineActivity.class);
-                startActivity(intent_myline);
-            }
-        });
-        Button button_find = (Button) findViewById(R.id.button_find);
-        button_find.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent_find = new Intent(MainActivity.this, FindActivity.class);
-                startActivity(intent_find);
-            }
-        });
+        fManager = getFragmentManager();
+        bindViews();
+        txt_channel.performClick();   //模拟一次点击，既进去后选择第一项
     }
+
+    //UI组件初始化与事件绑定
+    private void bindViews()
+    {
+        txt_topbar = (TextView) findViewById(R.id.txt_topbar);
+        txt_channel = (TextView) findViewById(R.id.txt_channel);
+        txt_message = (TextView) findViewById(R.id.txt_message);
+        txt_better = (TextView) findViewById(R.id.txt_better);
+        txt_setting = (TextView) findViewById(R.id.txt_setting);
+        ly_content = (LinearLayout) findViewById(R.id.ly_content);
+
+        txt_channel.setOnClickListener(this);
+        txt_message.setOnClickListener(this);
+        txt_better.setOnClickListener(this);
+        txt_setting.setOnClickListener(this);
+    }
+
+    //重置所有文本的选中状态
+    private void setSelected()
+    {
+        txt_channel.setSelected(false);
+        txt_message.setSelected(false);
+        txt_better.setSelected(false);
+        txt_setting.setSelected(false);
+    }
+
+    //隐藏所有Fragment
+    private void hideAllFragment(FragmentTransaction fragmentTransaction)
+    {
+        if (fg1 != null) fragmentTransaction.hide(fg1);
+        if (fg2 != null) fragmentTransaction.hide(fg2);
+        if (fg3 != null) fragmentTransaction.hide(fg3);
+        if (fg4 != null) fragmentTransaction.hide(fg4);
+    }
+
 
     @Override
-    protected void onRestart() {
-        super.onRestart();
+    public void onClick(View v)
+    {
+        FragmentTransaction fTransaction = fManager.beginTransaction();
+        hideAllFragment(fTransaction);
+        switch (v.getId())
+        {
+            case R.id.txt_channel:
+                setSelected();
+                txt_channel.setSelected(true);
+                if (fg1 == null)
+                {
+                    fg1 = new MyFragment(1);
+                    fTransaction.add(R.id.ly_content, fg1);
+                } else
+                {
+                    fTransaction.show(fg1);
+                }
+                break;
+            case R.id.txt_message:
+                setSelected();
+                txt_message.setSelected(true);
+                if (fg2 == null)
+                {
+                    fg2 = new MyFragment(2);
+                    fTransaction.add(R.id.ly_content, fg2);
+                } else
+                {
+                    fTransaction.show(fg2);
+                }
+                break;
+            case R.id.txt_better:
+                setSelected();
+                txt_better.setSelected(true);
+                if (fg3 == null)
+                {
+                    fg3 = new MyFragment(3);
+                    fTransaction.add(R.id.ly_content, fg3);
+                } else
+                {
+                    fTransaction.show(fg3);
+                }
+                break;
+            case R.id.txt_setting:
+                setSelected();
+                txt_setting.setSelected(true);
+                if (fg4 == null)
+                {
+                    fg4 = new MyFragment(4);
+                    fTransaction.add(R.id.ly_content, fg4);
+                } else
+                {
+                    fTransaction.show(fg4);
+                }
+                break;
+        }
+        fTransaction.commit();
     }
-
-    //---------------------------------------------
 }
