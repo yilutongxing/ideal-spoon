@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.edu.cugb.information_program.go_test.MainActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bianjinidexingcheng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="编辑您的行程"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/xian"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/bianjinidexingcheng"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="25dp"
+                android:background="#d8ced2" />
+
+            <TextView
+                android:id="@+id/chufadi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/xian"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:text="出发地 :"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/mudidi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chufadi"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:text="目的地 :"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/mudidi"
+                android:layout_alignBottom="@+id/mudidi"
+                android:layout_toEndOf="@+id/mudidi"
+                android:layout_toRightOf="@+id/mudidi"
+                android:hint="目的地" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/editText3"
+                android:layout_toEndOf="@+id/chufadi"
+                android:layout_toRightOf="@+id/chufadi"
+                android:hint="出发地" />
+
+            <TextView
+                android:id="@+id/checihao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/mudidi"
+                android:layout_alignStart="@+id/mudidi"
+                android:layout_below="@+id/mudidi"
+                android:layout_marginTop="20dp"
+                android:text="车次号 :"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/checihao"
+                android:layout_alignBottom="@+id/checihao"
+                android:layout_toEndOf="@+id/checihao"
+                android:layout_toRightOf="@+id/checihao"
+                android:hint="车次号" />
+
+
+            <TextView
+                android:id="@+id/chufayue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/checihao"
+                android:layout_alignStart="@+id/checihao"
+                android:layout_below="@+id/checihao"
+                android:layout_marginTop="20dp"
+                android:text="出发月 :"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/editText6"
+                android:layout_alignBaseline="@+id/chufayue"
+                android:layout_toEndOf="@+id/chufayue"
+                android:layout_toRightOf="@+id/chufayue"
+                android:hint="出发月" />
+
+            <TextView
+                android:id="@+id/chufari"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/chufayue"
+                android:layout_alignStart="@+id/chufayue"
+                android:layout_below="@+id/chufayue"
+                android:layout_marginTop="20dp"
+                android:text="出发日 :"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editText6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/chufari"
+                android:layout_alignBottom="@+id/chufari"
+                android:layout_toEndOf="@+id/chufari"
+                android:layout_toRightOf="@+id/chufari"
+                android:hint="出发日" />
+
+            <EditText
+                android:id="@+id/editText7"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignEnd="@+id/xian"
+                android:layout_alignLeft="@+id/chufari"
+                android:layout_alignRight="@+id/xian"
+                android:layout_alignStart="@+id/chufari"
+                android:layout_below="@+id/chufari"
+                android:layout_marginTop="20dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:hint="分享你此时此刻的心情 !" />
+
+            <CheckBox
+                android:id="@+id/cb_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/editText7"
+                android:layout_alignRight="@+id/editText7"
+                android:layout_below="@+id/editText7"
+                android:layout_marginTop="20dp"
+                android:background="@null"
+                android:checked="false"
+                android:duplicateParentState="false"
+                android:text="行程对他人可见"
+                android:textColor="#666666"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/button_matching"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/cb_checkbox"
+                android:layout_below="@+id/cb_checkbox"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/round_corner_bg"
+                android:elevation="1dp"
+                android:gravity="center"
+                android:text="保存行程"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

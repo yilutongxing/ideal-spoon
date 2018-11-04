@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+    <TextView
+        android:id="@+id/theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0.06"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/info_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_bg"
+        android:textSize="20dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text=" 电话号码（邀约成功后可显示）"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_bg"
+        android:id="@+id/info_phone"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_bg"
+        android:id="@+id/info_major"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/info_sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="性别"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/info_birthday"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="生日"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        />
+    <TextView
+        android:id="@+id/info_introduce"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_bg"
+        android:text=" 个人简介"
+        android:textSize="20dp"
+        android:gravity="center"/>
+    <Button
+        android:id="@+id/info_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textColor="#ffffff"
+        android:text="邀约"
+        android:textSize="25sp"
+        android:background="#66CD00" />
+</LinearLayout>
